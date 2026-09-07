@@ -1,0 +1,262 @@
+```html
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Linkin Park CD</title>
+
+  <style>
+    :root {
+      --charcoal: #17151a;
+      --purple-deep: #301c4f;
+      --off: #f5f1f8;
+      --line: rgba(255,255,255,.15);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: #0d0c10;
+      color: var(--off);
+      font-family: Arial, sans-serif;
+    }
+
+    /* =========================
+       CONTAINER DO CD
+       ========================= */
+
+    .cd-container {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      perspective: 1000px;
+    }
+
+    .cd-wrapper {
+      text-align: center;
+    }
+
+    /* =========================
+       CD
+       ========================= */
+
+    .cd {
+      position: relative;
+
+      width: 280px;
+      height: 280px;
+
+      border-radius: 50%;
+      overflow: hidden;
+
+      background:
+        radial-gradient(
+          circle at center,
+          #111 0 18px,
+          #777 19px 21px,
+          transparent 22px
+        ),
+        linear-gradient(
+          135deg,
+          #222,
+          #777,
+          #222,
+          #aaa,
+          #333
+        );
+
+      border: 3px solid rgba(255,255,255,.25);
+
+      box-shadow:
+        0 0 25px rgba(0,0,0,.6),
+        inset 0 0 35px rgba(255,255,255,.15);
+
+      transition:
+        transform .8s ease,
+        box-shadow .4s ease;
+    }
+
+    /* Efeito quando passa o mouse */
+
+    .cd:hover {
+      transform: rotate(8deg) scale(1.04);
+
+      box-shadow:
+        0 0 40px rgba(130,70,180,.45),
+        inset 0 0 35px rgba(255,255,255,.2);
+    }
+
+    /* =========================
+       FOTO DO LINKIN PARK
+       ========================= */
+
+    .cd-image {
+      position: absolute;
+
+      width: 78%;
+      height: 78%;
+
+      left: 11%;
+      top: 11%;
+
+      border-radius: 50%;
+
+      object-fit: cover;
+
+      display: block;
+
+      filter:
+        contrast(1.05)
+        saturate(.9);
+
+      z-index: 1;
+    }
+
+    /* =========================
+       BRILHO DO CD
+       ========================= */
+
+    .cd::before {
+      content: "";
+
+      position: absolute;
+      inset: 0;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          120deg,
+          transparent 25%,
+          rgba(255,255,255,.3) 45%,
+          transparent 55%
+        );
+
+      pointer-events: none;
+
+      z-index: 3;
+    }
+
+    /* =========================
+       FURO CENTRAL
+       ========================= */
+
+    .cd-hole {
+      position: absolute;
+
+      width: 34px;
+      height: 34px;
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+
+      border-radius: 50%;
+
+      background: #111;
+
+      border: 3px solid rgba(255,255,255,.35);
+
+      z-index: 5;
+    }
+
+    /* Reflexo dentro do furo */
+
+    .cd-hole::after {
+      content: "";
+
+      position: absolute;
+
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.5);
+
+      left: 50%;
+      top: 50%;
+
+      transform: translate(-50%, -50%);
+    }
+
+    /* =========================
+       NOME DA BANDA
+       ========================= */
+
+    .cd-title {
+      margin-top: 18px;
+
+      text-align: center;
+
+      font-size: 1.4rem;
+
+      font-weight: 700;
+
+      letter-spacing: 2px;
+
+      color: var(--off);
+    }
+
+    /* =========================
+       CELULAR
+       ========================= */
+
+    @media (max-width: 600px) {
+
+      .cd {
+        width: 220px;
+        height: 220px;
+      }
+
+      .cd-title {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <main class="cd-container">
+
+    <div class="cd-wrapper">
+
+      <div class="cd">
+
+        <!--
+          COLOQUE A FOTO DO LINKIN PARK AQUI.
+          Substitua LINK_DA_FOTO pelo arquivo/imagem
+          que você anexou no Artifact.
+        -->
+
+        <img
+          class="cd-image"
+          src="LINK_DA_FOTO"
+          alt="Linkin Park"
+        >
+
+        <!-- Furo central do CD -->
+        <div class="cd-hole"></div>
+
+      </div>
+
+      <div class="cd-title">
+        LINKIN PARK
+      </div>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
+```
